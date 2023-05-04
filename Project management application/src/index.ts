@@ -3,10 +3,10 @@ import { PORT } from './constants';
 
 import * as serverService from './services/server.service';
 
-
+//  mongodb+srv://alexkronin:j4VYHz62v4JWNCK6@cluster0.vajrxco.mongodb.net/?retryWrites=true&w=majority
 (async () => {
   try {
-    await mongoose.connect('mongodb+srv://alexkronin:j4VYHz62v4JWNCK6@@cluster0.vajrxco.mongodb.net/managerApp');
+    await mongoose.connect('mongodb+srv://alexkronin:j4VYHz62v4JWNCK6@cluster0.vajrxco.mongodb.net/?retryWrites=true&w=majority');
     serverService.server.listen(process.env.PORT || PORT, function () {
       console.log('Сервер ожидает подключения...');
     })
