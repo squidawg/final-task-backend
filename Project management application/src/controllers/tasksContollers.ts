@@ -5,6 +5,7 @@ import { checkBody, createError } from '../services/error.service';
 
 
 export const getTasks = async (req: Request, res: Response) => {
+
   const boardId = req.baseUrl.split('/')[2];
   const columnId = req.baseUrl.split('/')[4];
   try {
@@ -27,6 +28,7 @@ export const getTaskById = async (req: Request, res: Response) => {
 };
 
 export const createTask = async (req: Request, res: Response) => {
+  res.setHeader('Access-Control-Allow-Origin', 'http://localhost:4200');
   const guid = req.header('Guid') || 'undefined';
   const initUser = req.header('initUser') || 'undefined';
   const boardId = req.baseUrl.split('/')[2];
