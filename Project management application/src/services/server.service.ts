@@ -29,7 +29,11 @@ app.use(
   swaggerUi.serve,
   swaggerUi.setup(swaggerDocument)
 );
-app.use(cors({ origin: '*' }));
+app.use(cors({
+  origin: '*',
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+}));
 app.use(mung);
 app.use(isAuth);
 app.use('/users', usersRouter);

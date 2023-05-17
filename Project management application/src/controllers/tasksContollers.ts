@@ -32,7 +32,6 @@ export const createTask = async (req: Request, res: Response) => {
   const initUser = req.header('initUser') || 'undefined';
   const boardId = req.baseUrl.split('/')[2];
   const columnId = req.baseUrl.split('/')[4];
-  console.log(guid, initUser, boardId, columnId)
 
   const bodyError = checkBody(req.body, ['title', 'order', 'description', 'userId', 'users'])
   if (bodyError) {
