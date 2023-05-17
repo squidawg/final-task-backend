@@ -15,6 +15,7 @@ import columnsSetRouter from '../routes/columnsSetRouter';
 import pointsRouter from '../routes/pointsRouter';
 import swaggerUi from 'swagger-ui-express';
 import swaggerDocument from '../../swagger.json';
+import tasksRouter from "../routes/tasksRouter";
 
 
 export const app = express();
@@ -36,6 +37,7 @@ app.use(cors({
 }));
 app.use(mung);
 app.use(isAuth);
+app.use('/boards/:boardId/columns/:columnId/tasks', tasksRouter)
 app.use('/users', usersRouter);
 app.use('/auth', authRouter);
 app.use('/boards', boardsRouter);
